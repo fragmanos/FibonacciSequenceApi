@@ -1,0 +1,13 @@
+apiVersion: helm.integrations.flux.weave.works/v1alpha2
+kind: FluxHelmRelease
+metadata:
+  name: tddplayground
+  namespace: tddPlayground
+  labels:
+    chart: dotnet-microservice
+spec:
+  chartGitPath: dotnet-microservice/0.1.0
+  values:
+    ecr_repo: tddPlayground/tddplayground
+    version: "{{ .Env.GO_REVISION_SOURCE }}"
+  
