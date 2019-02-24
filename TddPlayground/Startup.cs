@@ -53,6 +53,7 @@ namespace TddPlayground
                 options.OperationFilter<SwaggerDefaultValues>();           
             });
             services.AddSingleton(_configuration);
+            services.AddSingleton<IFibonacci, FibonacciService>();
 
             services.AddHealthChecks(checks =>
             {

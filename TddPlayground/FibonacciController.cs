@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TddPlayground
 {
+    [ApiController]
+    [Route("fibonacci/")]
     public class FibonacciController : Controller
     {
         private readonly IFibonacci _fibonacci;
@@ -12,7 +14,9 @@ namespace TddPlayground
             _fibonacci = fibonacci;
         }
 
-        public IActionResult GetElements(int numOfElements)
+        [HttpGet]
+        [Route("elements/")]
+        public IActionResult GetElements([FromQuery(Name = "e")] int numOfElements)
         {
             int[] elements;
             if (numOfElements < 2)
